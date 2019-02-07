@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-api-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: logging-test
+    spec:
+      containers:
+      - name: logging-test
+        image: maksimskvortsov/logging:#{Build.BuildId}#
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: logging-test-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: logging-test
