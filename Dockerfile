@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
-COPY ["/Logging.csproj", "Logging/"]
+COPY ["Logging/Logging.csproj", "Logging/"]
 RUN dotnet restore "Logging/Logging.csproj"
 COPY . .
 WORKDIR "/src/Logging"
