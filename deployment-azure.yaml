@@ -15,7 +15,7 @@ spec:
       containers:
       - name: logging-test
         imagePullPolicy: Always
-        image: maksimskvortsov/logging:#{Build.BuildId}#
+        image: #{Platform.ContainerRegistryName}#/maksimskvortsov/logging:#{Build.BuildId}#
         ports:
         - containerPort: 80
 ---
