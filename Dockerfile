@@ -17,4 +17,5 @@ RUN dotnet publish "Logging.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+COPY ["deployment-azure.yaml", "deployment-azure.yaml"]
 ENTRYPOINT ["dotnet", "Logging.dll"]
