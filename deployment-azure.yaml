@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: web-api-deployment
 spec:
+  selector: 
+    matchLabels: 
+      app: logging-test
   replicas: 1
   template:
     metadata:
